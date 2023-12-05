@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    [SerializeField] private float smoothTime = 0.05f;
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
