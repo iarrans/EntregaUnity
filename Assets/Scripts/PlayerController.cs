@@ -25,12 +25,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        Jump();
+        if (GameController.instance.isPlaying) Jump();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if(GameController.instance.isPlaying) Move();
     }
 
     void Move() {
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        Look();
+        if (GameController.instance.isPlaying) Look();
     }
 
     void OnCollisionEnter(Collision collision)
