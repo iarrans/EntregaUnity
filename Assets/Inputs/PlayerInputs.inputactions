@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "6b0c3485-5aa6-4626-bb42-78ee2341fcd5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "536ae733-c985-4860-9e2c-8f426cc854aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -72,59 +90,81 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Controller",
-                    "id": "24ee131e-c024-4111-956b-748a8b09af4e",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "20e818b0-a9b0-49ca-9341-168116f886e7",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "bf7261ab-83f4-4296-9036-bb6a9ab02639",
-                    "path": "<Joystick>/stick/up",
+                    "name": "",
+                    "id": "a5c55ca3-9498-403f-bf9f-e276e7c5a40a",
+                    "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "09ed3e67-a1d8-42dc-b64a-4424d3d822af",
-                    "path": "<Joystick>/stick/down",
+                    "name": "",
+                    "id": "37329952-adb9-4627-8284-27da9803c6ed",
+                    "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Look",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
-                    "id": "81b3ff9c-ceff-4d5f-9dcc-ceeb4cb46917",
-                    "path": "<Joystick>/stick/left",
+                    "name": "",
+                    "id": "26aaa57b-93bd-45a0-b939-f5f233885b10",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Look",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "right",
-                    "id": "525695cc-b7ca-48e6-9c5d-1f0db29940f0",
-                    "path": "<Joystick>/stick/right",
+                    "name": "",
+                    "id": "722fece7-cccd-4185-a64d-6ac2035d6663",
+                    "path": "<Joystick>/{Hatswitch}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Look",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bbddd45-ec79-48d8-82b3-1c2cef11d183",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69f8d7ab-5477-47ac-ad9c-2919abc9d9af",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
