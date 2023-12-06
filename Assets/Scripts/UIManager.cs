@@ -36,7 +36,8 @@ public class UIManager : MonoBehaviour
     {
         GameObject proofImage= Instantiate(ProofImageUIPrefab, ProofImagesLayer.transform);
         proofImages.Add(proofImage);
-        proofImage.GetComponent<Image>().sprite = proof.proofUISprite;    
+        proofImage.GetComponent<Image>().sprite = proof.proofUISprite;
+        proofImage.GetComponent<UIProofImage>().info = proof;
     }
 
     public void CheckProofImage(ProofInfo proof)
@@ -60,8 +61,8 @@ public class UIManager : MonoBehaviour
         //parseo del tiempo a formato contador
         int minutos = Mathf.Max(Mathf.FloorToInt(currentTime / 60), 0);     //Extraemos los minutos
         int segundos = Mathf.Max(Mathf.FloorToInt(currentTime % 60), 0);    //Extraemos los segundos
-        if (segundos >= 10) timeText.text = minutos + ":" + segundos;                    //Si los segundos son mayores o iguales que 10, concatenamos y construimos el texto
-        else timeText.text = minutos + ":" + "0" + segundos;                             //Si los segundos son menors que 10, añadimos un 0 a nuestros segundos, concatenamos
+        if (segundos >= 10) timeText.text = minutos + ":" + segundos;       //Si los segundos son mayores o iguales que 10, concatenamos y construimos el texto
+        else timeText.text = minutos + ":" + "0" + segundos;                //Si los segundos son menors que 10, añadimos un 0 a nuestros segundos, concatenamos
     }
 
 }
