@@ -59,6 +59,11 @@ public class GameController : MonoBehaviour
         Debug.Log("You Lost: Timer Out");
     }
 
+    public void AddProof(ProofInfo info)
+    {
+        ProofsFound.Add(info);
+        UIManager.instance.CheckProofImage(info);
+    }
  
 
 }

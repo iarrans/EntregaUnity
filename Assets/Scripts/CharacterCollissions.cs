@@ -12,7 +12,7 @@ public class CharacterCollissions : MonoBehaviour
             //Añadimos la información de la prueba encontrada al Game Controller y la eliminamos del mapa
             ProofInfo newInfo = other.transform.GetComponent<ProofBehaviour>().info;
             Debug.Log("Proof found! " + newInfo.proofName);
-            GameController.instance.ProofsFound.Add(newInfo);
+            GameController.instance.AddProof(newInfo);
             Destroy(other.gameObject);
         }
     }
