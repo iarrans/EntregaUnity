@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour
     //Indica si pj está en el suelo
     public bool grounded;
 
+    public bool IsSprinting;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
@@ -26,6 +30,43 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         if (GameController.instance.isPlaying) Jump();
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (GameController.instance.isPlaying) Sprint();
+    }
+
+    private void Sprint()
+    {
+        if (!IsSprinting)
+        {
+            StartCoroutine(SprintCoroutine());
+        }
+    }
+
+    private IEnumerator SprintCoroutine()
+    {
+        IsSprinting = true;
+        speed = speed * 2.5f;
+        //Tiempo máximo de duración del sprint
+        float sprintTime = 2;
+        while (sprintTime > 0)
+        {
+            UIManager.instance.SprintSlider.value = sprintTime;
+            sprintTime -= 0.05f;
+            yield return new WaitForSeconds(0.05f);       
+        }
+        speed /= 2.5f;
+        //Tiempo de delay para poder hacer el siguiente sprint
+        sprintTime = 0;
+        while (sprintTime < 2)
+        {
+            UIManager.instance.SprintSlider.value = sprintTime;
+            sprintTime += 0.02f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        IsSprinting = false;
     }
 
     private void FixedUpdate()

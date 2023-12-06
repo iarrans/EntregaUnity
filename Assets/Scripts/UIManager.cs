@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
 
     public List<GameObject> proofImages;
 
+    public Slider SprintSlider;
+
     private void Awake()
     {
         instance = this;
