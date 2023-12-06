@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
             InstantiatedProofs.Add(newProof);
             int i = Random.Range(0, SpawningObjectsPLaces.Count);
             newProof.transform.position = SpawningObjectsPLaces[i].transform.position;
+            Debug.Log(proof.GetComponent<ProofBehaviour>().info.proofName);
+            UIManager.instance.CreateProofButton(proof.GetComponent<ProofBehaviour>().info);
             SpawningObjectsPLaces.Remove(SpawningObjectsPLaces[i]);
         }
 
@@ -57,9 +59,6 @@ public class GameController : MonoBehaviour
         Debug.Log("You Lost: Timer Out");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
+
 }
