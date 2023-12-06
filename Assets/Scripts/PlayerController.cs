@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
 
     void Look()
     {
-
         //Turn (LooK x = Mouse X)
         transform.Rotate(Vector3.up * look.x * senstivity);
 
@@ -74,15 +73,6 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.AddForce(jumpForces, ForceMode.VelocityChange);
-    }
-
-    public bool IsGrounded()
-    {
-        //grounded = Physics.Raycast(transform.position, Vector3.down, groundDis collissions = Physics.OverlapBox(transform.position, Vector3.down, Quaternion.identity);tance);
-        //grounded = Physics.Raycast(transform.position, -Vector3.up, 0.1f);
-        Collider[] collissions = Physics.OverlapBox(transform.position, new Vector3(0,1,0), Quaternion.identity);
-        Debug.Log("grounded? " + grounded);
-        return grounded;
     }
 
     private void Awake()

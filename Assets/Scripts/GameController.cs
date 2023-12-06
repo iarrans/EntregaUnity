@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        GameController.instance = this;
+        instance = this;
         isPlaying = false;
         StartCoroutine(LoadGame());
     }
@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
         foreach (GameObject proof in ProofPrefabs)
         {
             GameObject newProof = Instantiate(proof, ProofParent.transform);
+            InstantiatedProofs.Add(newProof);
             int i = Random.Range(0, SpawningObjectsPLaces.Count);
             newProof.transform.position = SpawningObjectsPLaces[i].transform.position;
             SpawningObjectsPLaces.Remove(SpawningObjectsPLaces[i]);
