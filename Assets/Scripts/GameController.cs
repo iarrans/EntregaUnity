@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -16,11 +17,12 @@ public class GameController : MonoBehaviour
 
     public float totalTime, currentTime;
 
-    public bool isPlaying;
+    public bool isPlaying, canExit;
 
     void Awake()
     {
         instance = this;
+        canExit = false;
         isPlaying = false;
         StartCoroutine(LoadGame());
     }
@@ -43,6 +45,7 @@ public class GameController : MonoBehaviour
 
         isPlaying = true;
         yield return null;
+        //Solo se empieza la cuenta atrás una vez se han terminado de cargar y posicionar los recursos del juego
         StartCoroutine(Timer());
     }
 
@@ -52,18 +55,36 @@ public class GameController : MonoBehaviour
         {
             if (isPlaying) { 
             currentTime--;
-            Debug.Log(currentTime);
             yield return new WaitForSeconds(1);
             }
         }
         Debug.Log("You Lost: Timer Out");
+        EndGame(false);
     }
 
     public void AddProof(ProofInfo info)
     {
         ProofsFound.Add(info);
         UIManager.instance.CheckProofImage(info);
+        if (ProofsFound.Count == ProofPrefabs.Count)
+        {
+            canExit = true;
+            Debug.Log("¡Ahora puedes huir!");
+        }
     }
- 
+
+    public void EndGame(bool victory)
+    {
+        //Pasamos los datos para la siguiente escena
+        MainUtils.Victory = victory;
+        MainUtils.RemainingSeconds = currentTime;
+        MainUtils.objectsCollected = ProofsFound.Count;
+        MainUtils.totalObjects = ProofPrefabs.Count;
+
+        //Cargamos escena con resultados
+
+        SceneManager.LoadScene("ResultsScreen");
+
+    }
 
 }

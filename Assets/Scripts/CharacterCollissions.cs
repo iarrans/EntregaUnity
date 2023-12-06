@@ -15,5 +15,24 @@ public class CharacterCollissions : MonoBehaviour
             GameController.instance.AddProof(newInfo);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Exit"))
+        {
+            if (GameController.instance.canExit)
+            {
+                Debug.Log("¡Ahora puedes salir por la puerta!");
+                other.gameObject.transform.parent.GetComponent<Collider>().isTrigger = true;
+            }
+            else
+            {
+                Debug.Log("¡Te faltan objetos!");
+            }
+        }
+
+        if (other.gameObject.CompareTag("WinningSpot") && GameController.instance.canExit)
+        {
+            Debug.Log("Fin de la partida");
+            GameController.instance.EndGame(true);
+        }
     }
 }

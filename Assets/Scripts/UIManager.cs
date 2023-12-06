@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
             if (uIProofImage.info == proof && !uIProofImage.hasBeenFound)
             {
                 uIProofImage.hasBeenFound = true;
+                //Cambiar a sprite de completado
                 imageGO.GetComponent<Image>().color = Color.green;
                 break;
             }
