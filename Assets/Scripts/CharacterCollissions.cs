@@ -16,6 +16,13 @@ public class CharacterCollissions : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("LightEnemy"))
+        {
+            //Añadimos la información de la prueba encontrada al Game Controller y la eliminamos del mapa
+            transform.GetComponent<PlayerController>().rb.velocity = Vector3.zero;
+            GameController.instance.LightEnemyEnding();
+        }
+
         if (other.gameObject.CompareTag("Exit"))
         {
             if (GameController.instance.canExit)

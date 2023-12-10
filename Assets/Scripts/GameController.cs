@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,22 @@ public class GameController : MonoBehaviour
             canExit = true;
             Debug.Log("¡Ahora puedes huir!");
         }
+    }
+
+    public void LightEnemyEnding()
+    {
+        StopAllCoroutines(); //Para parar cuenta atrás de tiempo
+        //Quitamos los controles del jugador
+        isPlaying = false;
+        StartCoroutine(LightJumpscare());      
+    }
+
+    private IEnumerator LightJumpscare()
+    {
+        //UIManager.instance.SprintSlider.transform.parent.gameObject.SetActive(false);
+        UIManager.instance.ScreamerPanel.SetActive(true);
+        yield return new WaitForSeconds(2);//Aquí iría el jumpscare
+        EndGame(false);
     }
 
     public void EndGame(bool victory)

@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
 
     public Slider SprintSlider;
 
+    public GameObject ScreamerPanel;
+
     private void Awake()
     {
         instance = this;
