@@ -9,6 +9,7 @@ TagManager:
   - ProofSpot
   - Exit
   - WinningSpot
+  - LightEnemy
   layers:
   - Default
   - TransparentFX
