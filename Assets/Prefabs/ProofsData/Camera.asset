@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0855be72cf3be4f85feeaec958812b, type: 3}
+  m_Name: Camera
+  m_EditorClassIdentifier: 
+  proofName: Camera
+  proofUISprite: {fileID: 21300000, guid: 82ff69bd63a204b439ae7c163022077a, type: 3}
+  soundEffect: {fileID: 0}

@@ -37,13 +37,14 @@ public class UIManager : MonoBehaviour
     public void CreateProofButton(ProofInfo proof)
     {
         GameObject proofImage= Instantiate(ProofImageUIPrefab, ProofImagesLayer.transform);
-        Debug.Log("aaaaaaaaaa");
         proofImages.Add(proofImage);
-        Debug.Log("bbbbbbbbbbbbb");
-        proofImage.GetComponent<Image>().sprite = proof.proofUISprite;
-        Debug.Log("cccccccccccccccc");
+        Image ProofIButton = proofImage.GetComponent<Image>();
+        ProofIButton.sprite = proof.proofUISprite;
+        var tempColor = ProofIButton.color;
+        tempColor.a = 0.25f;
+        ProofIButton.color = tempColor;
+
         proofImage.GetComponent<UIProofImage>().info = proof;
-        Debug.Log("dddddddddddddd");
     }
 
     public void CheckProofImage(ProofInfo proof)
@@ -55,7 +56,10 @@ public class UIManager : MonoBehaviour
             {
                 uIProofImage.hasBeenFound = true;
                 //Cambiar a sprite de completado
-                imageGO.GetComponent<Image>().color = Color.green;
+                Image proofImage = imageGO.GetComponent<Image>();
+                var tempColor = proofImage.color;
+                tempColor.a = 1f;
+                proofImage.color = tempColor;
                 break;
             }
         }

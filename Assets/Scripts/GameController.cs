@@ -11,13 +11,17 @@ public class GameController : MonoBehaviour
     public List<GameObject> ProofPrefabs;
 
     public GameObject ProofParent;
-    public List<GameObject> InstantiatedProofs;
 
     public List<ProofInfo> ProofsFound;
 
     public float totalTime, currentTime;
 
     public bool isPlaying, canExit;
+
+    private void Awake()
+    {
+        currentTime = totalTime;
+    }
 
     void Start()
     {
@@ -35,7 +39,6 @@ public class GameController : MonoBehaviour
         foreach (GameObject proof in ProofPrefabs)
         {
             GameObject newProof = Instantiate(proof, ProofParent.transform);
-            InstantiatedProofs.Add(newProof);
             int i = Random.Range(0, SpawningObjectsPLaces.Count);
             newProof.transform.position = SpawningObjectsPLaces[i].transform.position;
             Debug.Log(proof.GetComponent<ProofBehaviour>().info.proofName);
