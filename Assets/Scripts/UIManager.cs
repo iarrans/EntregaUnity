@@ -37,9 +37,13 @@ public class UIManager : MonoBehaviour
     public void CreateProofButton(ProofInfo proof)
     {
         GameObject proofImage= Instantiate(ProofImageUIPrefab, ProofImagesLayer.transform);
+        Debug.Log("aaaaaaaaaa");
         proofImages.Add(proofImage);
+        Debug.Log("bbbbbbbbbbbbb");
         proofImage.GetComponent<Image>().sprite = proof.proofUISprite;
+        Debug.Log("cccccccccccccccc");
         proofImage.GetComponent<UIProofImage>().info = proof;
+        Debug.Log("dddddddddddddd");
     }
 
     public void CheckProofImage(ProofInfo proof)

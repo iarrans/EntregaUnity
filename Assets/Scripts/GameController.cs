@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     public bool isPlaying, canExit;
 
-    void Awake()
+    void Start()
     {
         instance = this;
         canExit = false;
