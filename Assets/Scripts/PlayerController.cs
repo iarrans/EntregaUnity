@@ -78,6 +78,16 @@ public class PlayerController : MonoBehaviour
 
         //Target Velocity
         Vector3 currentVelocity = rb.velocity;
+
+        if (currentVelocity.x > 0 || currentVelocity.z > 0 || currentVelocity.y > 0)
+        {
+            transform.GetChild(0).GetComponent<Animator>().SetFloat("Speed",1);
+        }
+        else
+        {
+            transform.GetChild(0).GetComponent<Animator>().SetFloat("Speed", 0);
+        }
+
         Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
         targetVelocity *= speed;
 
