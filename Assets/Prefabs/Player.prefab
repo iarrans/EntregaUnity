@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: 8738872528359386008}
   m_Layer: 0
-  m_Name: retopovideojuego
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,6 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f83864467c3fac4e8197789f11ae38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   cameraHolder: {fileID: 7880083413814197387}
   speed: 5
   senstivity: 0.5
