@@ -6,18 +6,24 @@ using UnityEngine.Events;
 public class trigger : MonoBehaviour
 {
     [SerializeField] string TagFilter;
-    [SerializeField] UnityEvent Ontriggerenter;
-    [SerializeField] UnityEvent ontriggerExit;
+    [SerializeField] UnityEvent ontriggerEnter;
+    [SerializeField] UnityEvent onTriggerExit;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (!string.IsNullOrEmpty(TagFilter) && !other.gameObject.CompareTag(TagFilter)) return; 
-        ontriggerExit.Invoke();
+        ontriggerEnter.Invoke();
        
 
     }
 
+     void OnTriggerExit(Collider other)
+    {
+        if (!string.IsNullOrEmpty(TagFilter) && !other.gameObject.CompareTag(TagFilter)) return;
+        onTriggerExit.Invoke();
 
+
+    }
 
 
 
