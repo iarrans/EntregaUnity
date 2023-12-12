@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+    public GameObject Player;
+
     public List<GameObject> ProofPrefabs;
 
     public GameObject ProofParent;
@@ -45,6 +47,12 @@ public class GameController : MonoBehaviour
             Debug.Log(proof.GetComponent<ProofBehaviour>().info.proofName);
             UIManager.instance.CreateProofButton(proof.GetComponent<ProofBehaviour>().info);
             SpawningObjectsPLaces.Remove(SpawningObjectsPLaces[i]);
+        }
+
+        if (SpawningObjectsPLaces.Count> 0)
+        {
+            int i = Random.Range(0, SpawningObjectsPLaces.Count);
+            Player.transform.position = SpawningObjectsPLaces[i].transform.position;
         }
 
         isPlaying = true;
@@ -106,5 +114,4 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("ResultsScreen");
 
     }
-
 }
