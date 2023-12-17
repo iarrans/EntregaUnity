@@ -13,4 +13,6 @@ public class MainUtils : MonoBehaviour
 
     public static int totalObjects;
 
+    public static float TimeSpent;
+
 }

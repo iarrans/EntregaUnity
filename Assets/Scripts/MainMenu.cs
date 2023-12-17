@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class MainMenu : MonoBehaviour
 {
@@ -16,11 +17,13 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.SetFloat("BestTimeEver", 400);
+        //PlayerPrefs.SetFloat("HistoryTime", 0);
         if (PlayerPrefs.HasKey("HistoryObjects") && PlayerPrefs.HasKey("HistoryTime") && PlayerPrefs.HasKey("BestTimeEver"))
         {
             totalObjectsText.text = "Total objects collected: " + PlayerPrefs.GetInt("HistoryObjects");
-            totalTimeText.text = "Total Time Playing: " + PlayerPrefs.GetInt("HistoryTime") + " seconds";
-            bestTimeText.text = "Best time ever: " + PlayerPrefs.GetInt("BestTimeEver") + " seconds";
+            totalTimeText.text = "Total Time Playing: " + PlayerPrefs.GetFloat("HistoryTime") + " seconds";
+            bestTimeText.text = "Best time ever: " + PlayerPrefs.GetFloat("BestTimeEver") + " seconds";
         }
         else
         {
