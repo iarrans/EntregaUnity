@@ -15,6 +15,9 @@ public class MainMenu : MonoBehaviour
 
     public TextMeshProUGUI bestTimeText;
 
+    public AudioClip buttonEffect;
+    public AudioSource SFX;
+
     private void Awake()
     {
         //PlayerPrefs.SetFloat("BestTimeEver", 400);
@@ -31,6 +34,12 @@ public class MainMenu : MonoBehaviour
             totalTimeText.text = "Total Time Playing: Play to unlock";
             bestTimeText.text = "Best time ever: Play to unlock";
         }    
+    }
+
+    public void PlayButtonSound()
+    {
+        SFX.clip = buttonEffect;
+        SFX.Play();
     }
 
     public void LoadGameScene()
