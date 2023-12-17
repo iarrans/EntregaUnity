@@ -39,7 +39,7 @@ public class ResultsScreenUIManager : MonoBehaviour
         else
         {
             victoryText.text = "Welcome to the secta's family...";
-            if(RemainingSeconds > 0) timeText.text = "You have spend" + MainUtils.TimeSpent + " seconds";
+            if(RemainingSeconds > 0) timeText.text = "You have spend " + MainUtils.TimeSpent + " seconds";
             else timeText.text = "Runned out of time! Sikes!";
             objectsText.text = objectsCollected + "/" + totalObjects + " were collected";
         }
