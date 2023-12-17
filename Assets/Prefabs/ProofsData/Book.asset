@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proofName: Book
   proofUISprite: {fileID: 21300000, guid: 44359884a4ddf5540a13c37da8e6ba33, type: 3}
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 3d531e7111efb4546a2d6835c70847e8, type: 3}

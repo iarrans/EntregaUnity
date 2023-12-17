@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
 
     public bool isPlaying, canExit;
 
+    public AudioSource sfx;
+
     private void Awake()
     {
         currentTime = totalTime;
@@ -78,6 +80,8 @@ public class GameController : MonoBehaviour
 
     public void AddProof(ProofInfo info)
     {
+        sfx.clip = info.soundEffect;
+        sfx.Play();
         ProofsFound.Add(info);
         UIManager.instance.CheckProofImage(info);
         if (ProofsFound.Count == ProofPrefabs.Count)
