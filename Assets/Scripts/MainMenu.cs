@@ -2,10 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public TextMeshProUGUI totalObjectsText;
+
+    public TextMeshProUGUI totalTimeText;
+
+    public TextMeshProUGUI bestTimeText;
+
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("HistoryObjects") && PlayerPrefs.HasKey("HistoryTime") && PlayerPrefs.HasKey("BestTimeEver"))
+        {
+            totalObjectsText.text = "Total objects collected: " + PlayerPrefs.GetInt("HistoryObjects");
+            totalTimeText.text = "Total Time Playing: " + PlayerPrefs.GetInt("HistoryTime") + " seconds";
+            bestTimeText.text = "Best time ever: " + PlayerPrefs.GetInt("BestTimeEver") + " seconds";
+        }
+        else
+        {
+            totalObjectsText.text = "Total objects collected: Play to unlock";
+            totalTimeText.text = "Total Time Playing: Play to unlock";
+            bestTimeText.text = "Best time ever: Play to unlock";
+        }    
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Map");
