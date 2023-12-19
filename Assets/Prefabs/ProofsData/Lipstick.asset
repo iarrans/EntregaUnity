@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Lipstick
   m_EditorClassIdentifier: 
   proofName: Lipstick
-  proofUISprite: {fileID: 21300000, guid: 27550eb5a1a67e142a3566d193baded3, type: 3}
-  soundEffect: {fileID: 0}
+  proofUISprite: {fileID: 21300000, guid: 1c65557a80cef54449a1ada4cf68c7c6, type: 3}
+  soundEffect: {fileID: 8300000, guid: 3d531e7111efb4546a2d6835c70847e8, type: 3}

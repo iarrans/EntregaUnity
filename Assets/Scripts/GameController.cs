@@ -17,13 +17,16 @@ public class GameController : MonoBehaviour
 
     public List<ProofInfo> ProofsFound;
 
-    public float totalTime, currentTime;
+    public float totalTime, currentTime, timeSpent;
 
     public bool isPlaying, canExit;
+
+    public AudioSource sfx;
 
     private void Awake()
     {
         currentTime = totalTime;
+        timeSpent = 0;
     }
 
     void Start()
@@ -67,6 +70,7 @@ public class GameController : MonoBehaviour
         {
             if (isPlaying) { 
             currentTime--;
+            timeSpent++;
             yield return new WaitForSeconds(1);
             }
         }
@@ -76,6 +80,8 @@ public class GameController : MonoBehaviour
 
     public void AddProof(ProofInfo info)
     {
+        sfx.clip = info.soundEffect;
+        sfx.Play();
         ProofsFound.Add(info);
         UIManager.instance.CheckProofImage(info);
         if (ProofsFound.Count == ProofPrefabs.Count)
@@ -108,6 +114,7 @@ public class GameController : MonoBehaviour
         MainUtils.RemainingSeconds = currentTime;
         MainUtils.objectsCollected = ProofsFound.Count;
         MainUtils.totalObjects = ProofPrefabs.Count;
+        MainUtils.TimeSpent = timeSpent;
 
         //Cargamos escena con resultados
 

@@ -33,13 +33,13 @@ public class ResultsScreenUIManager : MonoBehaviour
         if (Victory)
         {
             victoryText.text = "Escaped the ritual safely!";
-            timeText.text = "You had " + RemainingSeconds + " seconds left, well done.";
+            timeText.text = "You have spend" + MainUtils.TimeSpent + " seconds";
             objectsText.text = objectsCollected + "/" + totalObjects + " were collected";
         }
         else
         {
             victoryText.text = "Welcome to the secta's family...";
-            if(RemainingSeconds > 0) timeText.text = "You had " + RemainingSeconds + " seconds left, though.";
+            if(RemainingSeconds > 0) timeText.text = "You have spend " + MainUtils.TimeSpent + " seconds";
             else timeText.text = "Runned out of time! Sikes!";
             objectsText.text = objectsCollected + "/" + totalObjects + " were collected";
         }
@@ -56,18 +56,18 @@ public class ResultsScreenUIManager : MonoBehaviour
         //Tiempo en total
         float previousTime = 0;
         if (PlayerPrefs.HasKey("HistoryTime")) previousTime = PlayerPrefs.GetFloat("HistoryTime");
-        float newTime = previousTime + 240 - RemainingSeconds;
-        PlayerPrefs.SetFloat("HistoryTime", newTime); //Sustituir 240 por tiempo total de escena de juego
-        historyTime.text = newTime + " in total spent playing this game";
+        float newTime = previousTime + MainUtils.TimeSpent;
+        PlayerPrefs.SetFloat("HistoryTime", newTime);
+        historyTime.text = newTime + " seconds in total spent playing this game";
 
         //Mejor tiempo
         float bestTime = 0;
         if (PlayerPrefs.HasKey("BestTimeEver")) bestTime = PlayerPrefs.GetFloat("BestTimeEver");
-        if (RemainingSeconds > bestTime)
+        if (MainUtils.TimeSpent < bestTime)
         {
-            bestTime = RemainingSeconds;
+            bestTime = MainUtils.TimeSpent;
             PlayerPrefs.SetFloat("BestTimeEver", bestTime);
-            besTime.text = "Best time ever: " + besTime;
+            besTime.text = "Best time ever: " + bestTime;
         }  
     }
 
