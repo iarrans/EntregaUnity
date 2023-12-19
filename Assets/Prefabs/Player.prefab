@@ -1308,8 +1308,8 @@ MonoBehaviour:
   maxForce: 1
   limitX: 30
   limitY: 30
-  grounded: 0
-  IsSprinting: 0
+  grounded: 1
+  IsSprinting: 1
 --- !u!54 &2942823808175308315
 Rigidbody:
   m_ObjectHideFlags: 0
