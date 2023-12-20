@@ -26,11 +26,6 @@ public class UIManager : MonoBehaviour
         proofImages = new List<GameObject>();
     }
 
-    public void Start()
-    {      
-       ParseTime();
-    }
-
     public void Update()
     {
         ParseTime();

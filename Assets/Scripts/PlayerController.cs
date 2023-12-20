@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsSprinting;
 
+
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
@@ -129,6 +130,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        IsSprinting = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
