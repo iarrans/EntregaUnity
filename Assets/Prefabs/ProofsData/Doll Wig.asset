@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Doll Wig
   m_EditorClassIdentifier: 
   proofName: Doll Wig
-  proofUISprite: {fileID: 21300000, guid: 1c567fe38e62bd945900d2a4c868a952, type: 3}
+  proofUISprite: {fileID: 21300000, guid: e2b5c526ff6979b4e86987de6cbee281, type: 3}
   soundEffect: {fileID: 8300000, guid: 3d531e7111efb4546a2d6835c70847e8, type: 3}
