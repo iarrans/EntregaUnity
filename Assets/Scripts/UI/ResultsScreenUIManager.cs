@@ -61,7 +61,7 @@ public class ResultsScreenUIManager : MonoBehaviour
         historyTime.text = newTime + " seconds in total spent playing this game";
 
         //Mejor tiempo
-        float bestTime = 0;
+        float bestTime = 240;
         if (PlayerPrefs.HasKey("BestTimeEver")) bestTime = PlayerPrefs.GetFloat("BestTimeEver");
         if (MainUtils.TimeSpent < bestTime)
         {

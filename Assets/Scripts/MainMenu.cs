@@ -20,20 +20,9 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        //PlayerPrefs.SetFloat("BestTimeEver", 400);
-        //PlayerPrefs.SetFloat("HistoryTime", 0);
-        if (PlayerPrefs.HasKey("HistoryObjects") && PlayerPrefs.HasKey("HistoryTime") && PlayerPrefs.HasKey("BestTimeEver"))
-        {
             totalObjectsText.text = "Total objects collected: " + PlayerPrefs.GetInt("HistoryObjects");
             totalTimeText.text = "Total Time Playing: " + PlayerPrefs.GetFloat("HistoryTime") + " seconds";
-            bestTimeText.text = "Best time ever: " + PlayerPrefs.GetFloat("BestTimeEver") + " seconds";
-        }
-        else
-        {
-            totalObjectsText.text = "Total objects collected: Play to unlock";
-            totalTimeText.text = "Total Time Playing: Play to unlock";
-            bestTimeText.text = "Best time ever: Play to unlock";
-        }    
+            bestTimeText.text = "Best time ever: " + PlayerPrefs.GetFloat("BestTimeEver") + " seconds";   
     }
 
     public void PlayButtonSound()
