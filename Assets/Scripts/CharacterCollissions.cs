@@ -18,9 +18,16 @@ public class CharacterCollissions : MonoBehaviour
 
         if (other.gameObject.CompareTag("LightEnemy"))
         {
-            //Añadimos la información de la prueba encontrada al Game Controller y la eliminamos del mapa
+            //Damos paso a la escena de jumpscare
             transform.GetComponent<PlayerController>().rb.velocity = Vector3.zero;
             GameController.instance.LightEnemyEnding();
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //Damos paso a la escena de jumpscare, ya que el enemigo nos ha atrapado
+            transform.GetComponent<PlayerController>().rb.velocity = Vector3.zero;
+            GameController.instance.EnemyEnding();
         }
 
         if (other.gameObject.CompareTag("Exit"))

@@ -23,15 +23,17 @@ public class GameController : MonoBehaviour
 
     public AudioSource sfx;
 
+    public AudioClip screamer;
+
     private void Awake()
     {
+        instance = this;
         currentTime = totalTime;
         timeSpent = 0;
     }
 
     void Start()
     {
-        instance = this;
         canExit = false;
         isPlaying = false;
         StartCoroutine(LoadGame());
@@ -102,8 +104,27 @@ public class GameController : MonoBehaviour
     private IEnumerator LightJumpscare()
     {
         //UIManager.instance.SprintSlider.transform.parent.gameObject.SetActive(false);
-        UIManager.instance.ScreamerPanel.SetActive(true);
+        //UIManager.instance.ScreamerPanel.SetActive(true);
         yield return new WaitForSeconds(2);//Aquí iría el jumpscare
+        EndGame(false);
+    }
+
+
+    public void EnemyEnding()
+    {
+        StopAllCoroutines(); //Para parar cuenta atrás de tiempo
+        //Quitamos los controles del jugador
+        isPlaying = false;
+        StartCoroutine(EnemyJumpscare());
+    }
+
+    private IEnumerator EnemyJumpscare()
+    {
+        UIManager.instance.ScreamerPanel.SetActive(true);
+        Debug.Log("Screamer goes here");
+        sfx.clip = screamer;
+        sfx.Play();
+        yield return new WaitForSeconds(3);//Aquí iría el jumpscare
         EndGame(false);
     }
 
