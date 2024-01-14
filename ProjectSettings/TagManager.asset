@@ -12,6 +12,7 @@ TagManager:
   - LightEnemy
   - Audio
   - Enemy
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX

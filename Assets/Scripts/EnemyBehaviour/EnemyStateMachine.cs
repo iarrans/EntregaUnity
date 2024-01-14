@@ -15,9 +15,9 @@ public class EnemyStateMachine : MonoBehaviour
 
     public int indexNextWaypoint;
 
-    public float minDistance = 1.5f;
+    public float minDistance;
 
-    public float range = 5;
+    public float range;
 
     NavMeshAgent agent;
 
@@ -26,6 +26,7 @@ public class EnemyStateMachine : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         actualState = initialState;
     }
 
@@ -54,7 +55,7 @@ public class EnemyStateMachine : MonoBehaviour
                 
             case State.perseguir:
 
-                agent.SetDestination(wayPoints[indexNextWaypoint].position);
+                agent.SetDestination(playerTransform.position);
 
                 if (Vector3.Distance(transform.position, playerTransform.position) > range)
                 {
