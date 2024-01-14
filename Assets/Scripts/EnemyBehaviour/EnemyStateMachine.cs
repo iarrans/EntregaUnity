@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    public enum State { patrulla, perseguir, volver}
+    public enum State { patrulla, perseguir, dormido}
 
     public State initialState;
 
@@ -22,6 +22,8 @@ public class EnemyStateMachine : MonoBehaviour
     NavMeshAgent agent;
 
     public Transform playerTransform;
+
+    public int proofsToAwake; //pruebas necesarias para que el enemigo se "despierte" y patrulle
 
     private void Start()
     {
@@ -64,10 +66,12 @@ public class EnemyStateMachine : MonoBehaviour
                 }
                 break;
 
-            case State.volver://sustituible por esperar, como cuando te sales del rango de los enemigos de ds, que se quedan un rato tolais antes de volver a us pos.
-                //También, se puede hacer que tengan comportamientos más agresivos o hagan algunas acciones específicas si queda poco tiempo
-                //También se puede hacer un comportamiento para el jumpscare
-                agent.SetDestination(wayPoints[indexNextWaypoint].position);
+            case State.dormido://El enemigo no está activo hasta que el jugador no obtiene x objetos
+                if (GameController.instance.ProofsFound.Count >= proofsToAwake)
+                {
+                    Debug.Log("Proofs found: " + GameController.instance.ProofsFound.Count);
+                    actualState = State.perseguir;
+                }
                 break;
         }
     }
