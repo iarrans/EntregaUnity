@@ -25,11 +25,22 @@ public class EnemyStateMachine : MonoBehaviour
 
     public int proofsToAwake; //pruebas necesarias para que el enemigo se "despierte" y patrulle
 
+    public AudioSource audio;
+
+    public List<AudioClip> clipList;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audio = GetComponent<AudioSource>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         actualState = initialState;
+        //Si está "dormido" de inicio, el enemigo estará rezando en bucle
+        if (actualState == State.dormido || initialState == State.dormido)
+        {
+            audio.loop = true;
+            audio.clip = clipList[0];
+        }
     }
 
     private void Update()
@@ -52,25 +63,29 @@ public class EnemyStateMachine : MonoBehaviour
                 if (Vector3.Distance(transform.position, playerTransform.position) < range)
                 {
                     actualState = State.perseguir;
+                    audio.Stop();
+                    audio.clip = clipList[1];
+                    audio.Play();
                 }
                 break;
                 
             case State.perseguir:
-
                 agent.SetDestination(playerTransform.position);
 
                 if (Vector3.Distance(transform.position, playerTransform.position) > range)
                 {
                     actualState = State.patrulla;
-                    //Sustituir, para que sean 3 estados, conque se queda dos segundos a la espera pegando gritos o algo y, después, mandar de vuelta a patrulla
+                    audio.Stop();
+                    audio.clip = clipList[2];
+                    audio.Play();
                 }
                 break;
 
-            case State.dormido://El enemigo no está activo hasta que el jugador no obtiene x objetos
+            case State.dormido://El enemigo no está activo hasta que el jugador no obtiene x objetos. Como si estuviera rezando
                 if (GameController.instance.ProofsFound.Count >= proofsToAwake)
                 {
-                    Debug.Log("Proofs found: " + GameController.instance.ProofsFound.Count);
-                    actualState = State.perseguir;
+                    audio.loop = false;
+                    actualState = State.patrulla;
                 }
                 break;
         }
