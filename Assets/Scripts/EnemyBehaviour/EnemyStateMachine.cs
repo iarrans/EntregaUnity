@@ -72,7 +72,7 @@ public class EnemyStateMachine : MonoBehaviour
             case State.perseguir:
                 agent.SetDestination(playerTransform.position);
 
-                if (Vector3.Distance(transform.position, playerTransform.position) > range)
+                if (Vector3.Distance(transform.position, playerTransform.position) > range + 5)
                 {
                     actualState = State.patrulla;
                     audio.Stop();
