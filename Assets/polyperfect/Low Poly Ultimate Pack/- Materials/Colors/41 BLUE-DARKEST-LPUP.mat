@@ -112,7 +112,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _MaxWaveHeight: 0.5
+    - _MaxWaveHeight: 0.3
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -127,13 +127,13 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _UVSec: 0
-    - _WaveHeight: 0.3
-    - _WaveSpread: 3.2
+    - _WaveHeight: 0.2
+    - _WaveSpread: 24.4
     - _WorkflowMode: 0
     - _ZWrite: 1
     - _flowspeed: 0.05
     - _foamDensity: 89.36
-    - _foamThickness: 4.5
+    - _foamThickness: 5.96
     - _foamspeed: 0.5
     m_Colors:
     - _BaseColor: {r: 0.13333334, g: 0.16078432, b: 0.24313726, a: 0}
