@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: -876546973899608171, guid: 58c3dc2b8a9f1ac4ead7958884e65b81, type: 3}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e634ac52185edc64b9c4f02405a2e2e6, type: 2}
   m_HaloStrength: 0
   m_FlareStrength: 1
   m_FlareFadeSpeed: 2.34
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.3034316, g: 0.018541805, b: 0.026708687, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -35539,6 +35539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Pursuer Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4793264688445989186, guid: 09a1e3853e6af01489c4ed4694735036, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ee4467ca498c3345b5362739e9128bc, type: 2}
     - target: {fileID: 6745109268258997248, guid: 09a1e3853e6af01489c4ed4694735036, type: 3}
       propertyPath: m_LocalPosition.x
       value: 367.68
