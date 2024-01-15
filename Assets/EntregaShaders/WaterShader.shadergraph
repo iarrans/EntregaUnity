@@ -720,8 +720,8 @@
     "m_ShaderOutputName": "Tiling",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 1.0,
-        "y": 1.0
+        "x": 0.4300000071525574,
+        "y": -0.14000000059604646
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -2952,7 +2952,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 5.0,
+    "m_Value": 0.9200000166893005,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -3139,7 +3139,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.10000000149011612,
+        "x": 0.4300000071525574,
         "y": 1.0,
         "z": 0.0,
         "w": 0.0
