@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
   m_Shader: {fileID: 4800000, guid: 8516d7a69675844a7a0b7095af7c46af, type: 3}
-  m_Parent: {fileID: 2100000, guid: fb9bec7d4537dc049933d4d2eef160c0, type: 2}
+  m_Parent: {fileID: 2100000, guid: e008cf4544bb2194eb6364e540a3d0df, type: 2}
   m_ModifiedSerializedProperties: 24
   m_ValidKeywords:
   - _COLORADDSUBDIFF_ON
@@ -53,6 +53,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _AlphaToMask: 0
     - _Blend: 2
     - _ColorMode: 1
     - _Cull: 0
