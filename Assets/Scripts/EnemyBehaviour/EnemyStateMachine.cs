@@ -40,6 +40,7 @@ public class EnemyStateMachine : MonoBehaviour
         {
             audio.loop = true;
             audio.clip = clipList[0];
+            audio.Play();
         }
     }
 
@@ -85,6 +86,9 @@ public class EnemyStateMachine : MonoBehaviour
                 if (GameController.instance.ProofsFound.Count >= proofsToAwake)
                 {
                     audio.loop = false;
+                    audio.Stop();
+                    audio.clip = clipList[3];
+                    audio.Play();
                     actualState = State.patrulla;
                 }
                 break;
