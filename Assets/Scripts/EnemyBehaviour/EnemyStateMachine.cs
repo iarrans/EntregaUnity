@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    public enum State { patrulla, perseguir, dormido}
+    public enum State { patrulla, perseguir, dormido, despertar}
 
     public State initialState;
 
@@ -20,6 +20,9 @@ public class EnemyStateMachine : MonoBehaviour
     public float range;
 
     NavMeshAgent agent;
+
+    public float SecondsToAwake = 4;
+    public bool isAwake = false;
 
     public Transform playerTransform;
 
@@ -89,9 +92,24 @@ public class EnemyStateMachine : MonoBehaviour
                     audio.Stop();
                     audio.clip = clipList[3];
                     audio.Play();
-                    actualState = State.patrulla;
+                    actualState = State.despertar;
+                    StartCoroutine(AwakeCharacter());
                 }
                 break;
+
+            case State.despertar://Estado transición para no comenzar a perseguir automáticamente al jugador, pero tampoco estar rezando inactivamente. Animación de despertar.
+                if (isAwake)
+                {
+                    actualState = State.patrulla;
+                }
+            break;
         }
     }
+
+    private IEnumerator AwakeCharacter()
+    {
+        yield return new WaitForSeconds(SecondsToAwake);
+        isAwake = true;
+    }
+
 }
